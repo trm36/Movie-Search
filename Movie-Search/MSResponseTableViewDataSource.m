@@ -8,6 +8,7 @@
 
 #import "MSResponseTableViewDataSource.h"
 #import "MovieController.h"
+#import "MSMovieResultTableViewCell.h"
 
 static NSString * const cellReuseKey = @"cell";
 
@@ -23,14 +24,17 @@ static NSString * const cellReuseKey = @"cell";
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
 
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellReuseKey];
+    MSMovieResultTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellReuseKey];
     if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellReuseKey];
+        cell = [[MSMovieResultTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellReuseKey];
     }
     
     NSDictionary *movie = [MovieController sharedInstance].resultMovies[indexPath.row];
     cell.textLabel.text = movie[@"title"];
-
+    NSString *releaseDate = [[movie[@"release_date"] componentsSeparatedByString:@"-"] objectAtIndex:0];
+    NSString *separator = @" - ";
+    NSString *rating = movie[@"vote_average"];
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@%@%@", releaseDate, separator, rating];
     return cell;
 }
 

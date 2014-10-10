@@ -9,6 +9,8 @@
 #import "MSViewController.h"
 #import "MSResponseTableViewDataSource.h"
 #import "MSMovieDetailViewController.h"
+#import "MovieController.h"
+#import <AFNetworking.h>
 
 @interface MSViewController () <UITableViewDelegate>
 
@@ -32,8 +34,12 @@
 
 }
 
-- (IBAction)search:(id)sender {
-
+- (IBAction)search:(id)sender
+{
+    [[MovieController sharedInstance] getMoviesWithName:self.searchField.text completion:^(BOOL success) {
+        NSLog(success ? @"Yes" : @"No");
+        [self.tableView reloadData];
+    }];
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
