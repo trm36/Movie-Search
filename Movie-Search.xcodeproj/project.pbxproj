@@ -101,6 +101,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		34E1F8C019E9D304002BE2B0 /* Movie Detail View */ = {
+			isa = PBXGroup;
+			children = (
+				7167C70219524BC700FD8F55 /* MSMovieDetailViewController.h */,
+				7167C70319524BC700FD8F55 /* MSMovieDetailViewController.m */,
+				7167C70419524BC700FD8F55 /* MSMovieDetailViewController.xib */,
+			);
+			name = "Movie Detail View";
+			sourceTree = "<group>";
+		};
+		34E1F8C119E9D31C002BE2B0 /* Movie Table Cell */ = {
+			isa = PBXGroup;
+			children = (
+				34ACC64719E7674F001E9683 /* MSMovieResultTableViewCell.h */,
+				34ACC64819E7674F001E9683 /* MSMovieResultTableViewCell.m */,
+			);
+			name = "Movie Table Cell";
+			sourceTree = "<group>";
+		};
 		5C2288F9F5D2EEE037CA6CFF /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -152,16 +171,13 @@
 				7167C6DD1952460600FD8F55 /* MSViewController.m */,
 				7167C6FF1952498600FD8F55 /* MSResponseTableViewDataSource.h */,
 				7167C7001952498600FD8F55 /* MSResponseTableViewDataSource.m */,
-				34ACC64719E7674F001E9683 /* MSMovieResultTableViewCell.h */,
-				34ACC64819E7674F001E9683 /* MSMovieResultTableViewCell.m */,
-				7167C70219524BC700FD8F55 /* MSMovieDetailViewController.h */,
-				7167C70319524BC700FD8F55 /* MSMovieDetailViewController.m */,
-				7167C70419524BC700FD8F55 /* MSMovieDetailViewController.xib */,
+				34E1F8C019E9D304002BE2B0 /* Movie Detail View */,
 				7167C70D19525B6500FD8F55 /* MovieController.h */,
 				7167C70E19525B6500FD8F55 /* MovieController.m */,
 				3469F6A919E6543C00A77994 /* NetworkController.h */,
 				3469F6AA19E6543C00A77994 /* NetworkController.m */,
 				7167C6DF1952460600FD8F55 /* Images.xcassets */,
+				34E1F8C119E9D31C002BE2B0 /* Movie Table Cell */,
 				7167C6CE1952460600FD8F55 /* Supporting Files */,
 			);
 			path = "Movie-Search";

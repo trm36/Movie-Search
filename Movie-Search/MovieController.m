@@ -32,7 +32,7 @@
      ^(NSURLSessionDataTask *task, id responseObject)
     {
         self.resultMovies = responseObject[@"results"];
-        NSLog(@"%@", self.resultMovies);
+        NSLog(@"get result movie: %@", self.resultMovies);
         completion(YES);
     }
     failure:
@@ -42,5 +42,22 @@
         completion(NO);
     }];
 }
+
+
+- (void)getMovieWithID:(NSString *)movieID completion:(void (^)(BOOL success))completion
+{
+    NSString *path = [NSString stringWithFormat:@"movie/%@", movieID];
+    [[NetworkController api] GET:path parameters:[NetworkController apiKey]
+                         success:^(NSURLSessionDataTask *task, id responseObject)
+                         {
+                             self.movieDetail = responseObject;
+                             NSLog(@"get movie detail: %@", self.movieDetail);
+                             completion(YES);
+                         }
+                         failure:^(NSURLSessionDataTask *task, NSError *error) {
+                             completion(NO);
+                         }];
+}
+
 
 @end

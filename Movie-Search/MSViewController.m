@@ -37,17 +37,21 @@
 - (IBAction)search:(id)sender
 {
     [[MovieController sharedInstance] getMoviesWithName:self.searchField.text completion:^(BOOL success) {
-        NSLog(success ? @"Yes" : @"No");
+        NSLog(success ? @"Yes, search" : @"No, search");
         [self.tableView reloadData];
     }];
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
     
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-    MSMovieDetailViewController *detailViewController = [MSMovieDetailViewController new];
-    [self.navigationController pushViewController:detailViewController animated:YES];
+    [[MovieController sharedInstance] getMovieWithID:[MovieController sharedInstance].resultMovies[indexPath.row][@"id"] completion:^(BOOL success) {
+        NSLog(success ? @"Yes, result movie" : @"No, result movie");
+        MSMovieDetailViewController *detailViewController = [MSMovieDetailViewController new];
+        [self.navigationController pushViewController:detailViewController animated:YES];
+    }];
 }
 
 @end

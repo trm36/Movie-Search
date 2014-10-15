@@ -34,4 +34,9 @@ static NSString * const API_KEY = @"53e0bfbe5a380567f77ec24bafd01593";
     return [mutableDictionary copy];
 }
 
++ (NSDictionary *)apiKey
+{
+    return @{@"api_key":API_KEY};
+}
+
 @end

@@ -9,6 +9,7 @@
 #import "MSResponseTableViewDataSource.h"
 #import "MovieController.h"
 #import "MSMovieResultTableViewCell.h"
+#import <AFNetworking/UIImageView+AFNetworking.h>
 
 static NSString * const cellReuseKey = @"cell";
 
@@ -31,10 +32,11 @@ static NSString * const cellReuseKey = @"cell";
     
     NSDictionary *movie = [MovieController sharedInstance].resultMovies[indexPath.row];
     cell.textLabel.text = movie[@"title"];
-    NSString *releaseDate = [[movie[@"release_date"] componentsSeparatedByString:@"-"] objectAtIndex:0];
-    NSString *separator = @" - ";
+    NSString *releaseDate = [[movie[@"release_date"] componentsSeparatedByString:@"-"] objectAtIndex:0]; //returns just the year
     NSString *rating = movie[@"vote_average"];
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@%@%@", releaseDate, separator, rating];
+    
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ - %@", releaseDate, rating];
+    [cell.imageView setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://image.tmdb.org/t/p/w92%@", movie[@"poster_path"]]]];
     return cell;
 }
 

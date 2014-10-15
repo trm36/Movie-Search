@@ -13,7 +13,9 @@
 + (MovieController *)sharedInstance;
 
 @property (nonatomic, strong) NSArray *resultMovies;
+@property (nonatomic, strong) NSDictionary *movieDetail;
 
 - (void)getMoviesWithName:(NSString *)name completion:(void (^)(BOOL success))completion;
+- (void)getMovieWithID:(NSString *)movieID completion:(void (^)(BOOL success))completion;
 
 @end

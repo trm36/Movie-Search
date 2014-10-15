@@ -15,4 +15,6 @@
 
 + (NSDictionary *)parametersWithAPIKey:(NSDictionary *)parameters;
 
++ (NSDictionary *)apiKey;
+
 @end
