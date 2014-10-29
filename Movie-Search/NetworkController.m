@@ -8,7 +8,7 @@
 
 #import "NetworkController.h"
 
-static NSString * const API_KEY = @"53e0bfbe5a380567f77ec24bafd01593";
+static NSString * const API_KEY = @"";
 
 @implementation NetworkController
 
